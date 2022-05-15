@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# Frontend Mentor - Job Seeker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a learning purpose to see more [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt)
 
-## Available Scripts
+You are able to expect functionalities with Job listings with filtering
 
-In the project directory, you can run:
+## Learning with Jay Lin YouTube Channel
 
-### `npm start`
+[Jay Lin XR](https://www.youtube.com/channel/UC1rMgKD4Rn-7aVcymjlvhfQ) tutorial
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## What skills I use
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+• TypeScript
 
-### `npm test`
+• Tailwind CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+• React
 
-### `npm run build`
+• Redux Tool Kit
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Front-end Style Guide
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Colors
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Primary
 
-### `npm run eject`
+- Desaturated Dark Cyan: hsl(180, 29%, 50%)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Neutral
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Light Grayish Cyan (Background): hsl(180, 52%, 96%)
+- Light Grayish Cyan (Filter Tablets): hsl(180, 31%, 95%)
+- Dark Grayish Cyan: hsl(180, 8%, 52%)
+- Very Dark Grayish Cyan: hsl(180, 14%, 20%)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Typography
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Body Copy
 
-## Learn More
+- Font size: 15px
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Headings
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Family: [League Spartan](https://fonts.google.com/specimen/League+Spartan)
+- Weights: 500, 700
+
+## How to Start a project
+
+1. Install node_modules
+
+   `yarn install` or `npm install`
+
+2. Type command and implement package.json
+
+   `yarn start` or `npm start`
+
+## Start Server
+
+[http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## What do I learn from this project?
+
+• [component props must be an object](https://stackoverflow.com/questions/70951815/react-typescript-property-data-does-not-exist-on-type-intrinsicattributes)
+
+### Demo
+
+You can see []()
