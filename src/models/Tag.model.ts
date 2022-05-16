@@ -1,6 +1,6 @@
 interface Tag {
     id: string,
-    name: string,
+    searchText: string,
 }
 
 export default Tag;

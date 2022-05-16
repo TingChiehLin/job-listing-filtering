@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/index";
 import JobListItem from "../components/JobListItem";
 import SearchBar from "../components/SearchBar";
 
@@ -21,12 +23,24 @@ interface dataType {
 type Props = { jobData: dataType[] };
 
 const JobListSection: FC<Props> = ({ jobData }) => {
-  //filter stuff
-  console.log(jobData);
+  const searchText = useSelector((state: RootState) => state.searchField.text);
+  const filterJobListing = jobData.filter((job) => {
+    const lowerCasedSearchText = searchText.toLocaleLowerCase();
+    if (lowerCasedSearchText.length === 0) return true;
+    const filterJobPost =
+      job.languages
+        .map((language) => language.toLocaleLowerCase())
+        .includes(lowerCasedSearchText) ||
+      job.tools
+        .map((tool) => tool.toLocaleLowerCase())
+        .includes(lowerCasedSearchText);
+    return filterJobPost;
+  });
+
   return (
     <div className="-mt-10">
       <SearchBar />
-      {jobData.map((post) => (
+      {filterJobListing.map((post) => (
         <JobListItem
           key={post.id}
           id={post.id}
