@@ -1,4 +1,4 @@
-# Frontend Mentor - Job Seeker
+# Frontend Mentor - Job Seeker App
 
 This is a learning purpose to see more [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt)
 
@@ -64,4 +64,4 @@ You are able to expect functionalities with Job listings with filtering
 
 ### Demo
 
-You can see []()
+You can see [Job Seeker](https://job-listing-filter-nine.vercel.app)
