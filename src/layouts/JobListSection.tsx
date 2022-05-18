@@ -38,7 +38,7 @@ const JobListSection: FC<Props> = ({ jobData }) => {
   });
 
   return (
-    <div className="-mt-10">
+    <div className="-mt-10 pb-28">
       <SearchBar />
       {filterJobListing.map((post) => (
         <JobListItem

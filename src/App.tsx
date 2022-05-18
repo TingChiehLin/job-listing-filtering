@@ -6,7 +6,7 @@ import data from "./models/data";
 
 const App = () => {
   return (
-    <div>
+    <div className="relative min-h-screen">
       <Header />
       <JobListSection jobData={data} />
       <Footer />

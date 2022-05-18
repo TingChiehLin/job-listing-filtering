@@ -34,7 +34,7 @@ const JobListItem: FC<dataItemPropType> = ({
   tools,
 }) => {
   return (
-    <div className="mb-12 w-4/5 mx-auto bg-white shadow-md hover:border-l-4 border-Dark-Cyan flex justify-between px-12 py-16">
+    <div className="w-4/5 mx-auto bg-white shadow-md hover:border-l-4 border-Dark-Cyan flex justify-between px-12 py-16">
       <div className="flex items-center">
         <img className="mr-6" alt={company} src={TestIcon} />
         <div>

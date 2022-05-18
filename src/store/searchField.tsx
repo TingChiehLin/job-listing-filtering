@@ -10,7 +10,7 @@ const searchSlice = createSlice({
   reducers: {
     searchFieldTextHandler(state: any, action: PayloadAction<string>) {
       state.text = action.payload;
-    },
+    }
   },
 });
 
