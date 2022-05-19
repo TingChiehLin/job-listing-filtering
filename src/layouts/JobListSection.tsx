@@ -1,10 +1,8 @@
-import { FC } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../store/index";
+import { FC, useEffect, useState } from "react";
 import JobListItem from "../components/JobListItem";
 import SearchBar from "../components/SearchBar";
 
-interface dataType {
+interface JobInfo {
   id: number;
   company: string;
   logo: string;
@@ -20,27 +18,53 @@ interface dataType {
   tools: any[];
 }
 
-type Props = { jobData: dataType[] };
+type Props = { jobData: JobInfo[] };
 
 const JobListSection: FC<Props> = ({ jobData }) => {
-  const searchText = useSelector((state: RootState) => state.searchField.text);
-  const filterJobListing = jobData.filter((job) => {
-    const lowerCasedSearchText = searchText.toLocaleLowerCase();
-    if (lowerCasedSearchText.length === 0) return true;
-    const filterJobPost =
-      job.languages
-        .map((language) => language.toLocaleLowerCase())
-        .includes(lowerCasedSearchText) ||
-      job.tools
-        .map((tool) => tool.toLocaleLowerCase())
-        .includes(lowerCasedSearchText);
-    return filterJobPost;
-  });
+  const [tags, setTags] = useState<string[]>([]);
+  const [filteredJobs, setFilteredJobs] = useState<JobInfo[]>(jobData);
+
+  useEffect(() => {
+
+    if (tags.length === 0) {
+      setFilteredJobs(jobData);
+      return;
+    }
+
+    const lowerCasedTags = tags.map(t => t.toLocaleLowerCase());
+    setFilteredJobs(jobData.filter(job => {
+      const lowerCasedLanguages = job.languages.map(l => l.toLocaleLowerCase());
+      const lowerCasedTools = job.tools.map(t => t.toLocaleLowerCase());
+
+      const isLanguagesMatched = lowerCasedLanguages.some(l => lowerCasedTags.includes(l));
+      const isToolsMatched = lowerCasedTools.some(t => lowerCasedTags.includes(t));
+
+      return isLanguagesMatched || isToolsMatched;
+    }));
+  }, [tags, jobData]);
 
   return (
     <div className="-mt-10 pb-28">
-      <SearchBar />
-      {filterJobListing.map((post) => (
+      <SearchBar
+        tags={tags}
+        onAddTag={(tag) => {
+          if (tags.includes(tag)) {
+            return;
+          }
+
+          setTags([
+            ...tags,
+            tag,
+          ])
+        }}
+        onRemoveTag={(tag) => {
+          setTags(tags.filter(t => t !== tag));
+        }}
+        onClearTags={() => {
+          setTags([]);
+        }}
+      />
+      {filteredJobs.map((post) => (
         <JobListItem
           key={post.id}
           id={post.id}
