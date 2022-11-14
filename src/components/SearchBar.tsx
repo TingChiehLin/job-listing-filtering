@@ -1,7 +1,4 @@
-import { ChangeEvent, FC, useState } from "react";
-import { searchFieldActions } from "../store/searchField";
-
-import Tag from "../models/Tag.model";
+import { FC, useState } from "react";
 
 import TagBox from "../components/TagBox";
 
@@ -21,56 +18,63 @@ const SearchBar: FC<SearchBarProps> = ({
   onClearTags,
 }) => {
   const [searchText, setSearchText] = useState<string>("");
-
   return (
-    <div className="relative">
-      <ul className="absolute top-[62px] left-52 -mt-10 cursor-pointer">
+    <div
+      className="
+                  flex 
+                  items-center
+                  border
+                  shadow-md
+                  w-4/5
+                  h-16
+                  mx-auto
+                  mb-12
+                  pr-6
+                  rounded-md
+      "
+    >
+      <div className="px-6 cursor-pointer">
         {searchText.length > 0 ? (
           <AiOutlineClose
-            size={"1.5rem"}
+            size={"2rem"}
             onClick={() => {
               setSearchText("");
             }}
           />
         ) : (
-          <AiOutlineSearch size={"1.5rem"} onClick={() => {}} />
+          <AiOutlineSearch size={"2rem"} onClick={() => {}} />
         )}
-      </ul>
-      <input
-        className="
-                    border
-                    shadow-md
-                    block
-                    w-4/5
-                    h-16
-                    mx-auto
-                    mb-12
-                    pl-16
-                    text-gray-700
-                    rounded-md
-                    outline-none
-                  "
-        type={"search"}
-        placeholder={"Please type search word"}
-        onChange={(e) => {
-          setSearchText(e.target.value);
-        }}
-        onKeyUp={(e) => {
-          if (e.key === "Enter") {
-            onAddTag(searchText);
-            setSearchText("");
-          }
-        }}
-        value={searchText}
-      />
-      <div className="flex justify-center items-center gap-6 absolute top-4 left-[28rem]">
-        {tags.map((tag: string, index) => (
-          <TagBox key={`tag-${index}`} tag={tag} onDelete={onRemoveTag} />
-        ))}
       </div>
-      <ul className="absolute top-[62px] right-[12.5%] -mt-10 cursor-pointer">
+      <div className="w-full flex items-center justify-between">
+        <input
+          className=" 
+                    outline-none
+                    w-4/5
+                    h-full                    
+                    text-gray-700
+                  "
+          type={"search"}
+          placeholder={"Please type search word"}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              onAddTag(searchText);
+              setSearchText("");
+            }
+          }}
+          value={searchText}
+        />
+        <div className="flex justify-center items-center gap-4">
+          {tags.map((tag: string, index) => (
+            <TagBox key={`tag-${index}`} tag={tag} onDelete={onRemoveTag} />
+          ))}
+        </div>
+      </div>
+      <div className="ml-4 cursor-pointer">
         {tags.length > 0 && <button onClick={onClearTags}>CLEAR</button>}
-      </ul>
+      </div>
     </div>
   );
 };

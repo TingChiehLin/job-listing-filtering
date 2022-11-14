@@ -86,31 +86,3 @@ const JobListItem: FC<dataItemPropType> = ({
 };
 
 export default JobListItem;
-
-// id: 9,
-// company: "Eyecam Co.",
-// logo: "./images/eyecam-co.svg",
-// news: false,
-// featured: false,
-// position: "Full Stack Engineer",
-// role: "Fullstack",
-// level: "Midweight",
-// postedAt: "3w ago",
-// contract: "Full Time",
-// location: "Worldwide",
-// languages: ["JavaScript", "Python"],
-// tools: ["Django"],
-
-// "Dark-Cyan": "hsl(180, 29%, 50%)",
-// "Light-Grayish-Cyan": "hsl(180, 31%, 95%)",
-// "Dark-Grayish-Cyan": "hsl(180, 8%, 52%)",
-// "Very-Dark-Grayish-Cyan": "hsl(180, 14%, 20%)",
-
-{
-  /* <button
-className={`w-32 h-16 rounded ${
-  amount.selectTipAmount === value ? "bg-teal-500" : "bg-cyan-900"
-}`}
-onClick={handleValue}
-> */
-}

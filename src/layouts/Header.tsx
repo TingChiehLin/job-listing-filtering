@@ -5,7 +5,7 @@ const Header: FC = () => {
   return (
     <div>
       <div className="bg-Dark-Cyan">
-        <img src={BG_Header} />
+        <img src={BG_Header} alt={"bg_header"} />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-export default [
+export const jobDatas = [
   {
     id: 1,
     company: "Photosnap",
