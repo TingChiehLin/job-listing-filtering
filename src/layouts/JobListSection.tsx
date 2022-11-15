@@ -15,7 +15,7 @@ interface JobInfo {
   contract: string;
   location: string;
   languages: string[];
-  tools: any[];
+  tools: string[];
 }
 
 type Props = { jobData: JobInfo[] };
@@ -29,14 +29,16 @@ const JobListSection: FC<Props> = ({ jobData }) => {
       setFilteredJobs(jobData);
       return;
     }
-
     const lowerCasedTags = tags.map((t) => t.toLocaleLowerCase());
     setFilteredJobs(
       jobData.filter((job) => {
         const lowerCasedLanguages = job.languages.map((l) =>
           l.toLocaleLowerCase()
         );
+
         const lowerCasedTools = job.tools.map((t) => t.toLocaleLowerCase());
+
+        const lowerCasedPositions = job.position.toLocaleLowerCase();
 
         const isLanguagesMatched = lowerCasedLanguages.some((l) =>
           lowerCasedTags.includes(l)
@@ -44,8 +46,11 @@ const JobListSection: FC<Props> = ({ jobData }) => {
         const isToolsMatched = lowerCasedTools.some((t) =>
           lowerCasedTags.includes(t)
         );
+        const isPositionMatched = lowerCasedTags.some((p) =>
+          lowerCasedPositions.includes(p)
+        );
 
-        return isLanguagesMatched || isToolsMatched;
+        return isLanguagesMatched || isToolsMatched || isPositionMatched;
       })
     );
   }, [tags, jobData]);
